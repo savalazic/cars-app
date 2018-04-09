@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import type { Car, Data } from '../../types';
+import type { Car, Data, SpeedLimit } from '../../types';
 import { getCars } from '../../api/carApi';
 
 import './App.css';
@@ -13,6 +13,7 @@ type State = {
   isDataLoading: boolean,
   cars: Array<Car>,
   trackDistance: number,
+  speedLimits: Array<SpeedLimit>,
 };
 
 class App extends Component<*, State> {
@@ -20,6 +21,7 @@ class App extends Component<*, State> {
     isDataLoading: true,
     cars: [],
     trackDistance: 0,
+    speedLimits: [],
   };
 
   componentDidMount() {
@@ -29,12 +31,15 @@ class App extends Component<*, State> {
         isDataLoading: false,
         cars: data.cars,
         trackDistance: data.distance,
+        speedLimits: data.speed_limits,
       });
     });
   }
 
   render() {
-    const { cars, isDataLoading, trackDistance } = this.state;
+    const {
+      cars, isDataLoading, trackDistance, speedLimits,
+    } = this.state;
 
     if (isDataLoading) {
       return <div>Loading data..</div>;
@@ -45,7 +50,7 @@ class App extends Component<*, State> {
         <CardListFilter cards={cars}>
           <CardList />
         </CardListFilter>
-        <Track distance={trackDistance} />
+        <Track distance={trackDistance} trafficSigns={speedLimits} />
       </div>
     );
   }

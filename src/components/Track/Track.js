@@ -1,16 +1,22 @@
 // @flow
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
+import { type SpeedLimit } from '../../types';
+import TrafficSign from '../TrafficSign';
 
 import './Track.css';
 
 type Props = {
   distance: number,
+  trafficSigns: Array<SpeedLimit>,
 };
 
 const NUM_PARTS = 10;
 
-const Track = ({ distance }: Props) => (
+const calculatePercentagePosition = (distance: number, position: number) =>
+  position / distance * 100; // eslint-disable-line
+
+const Track = ({ distance, trafficSigns }: Props) => (
   <div>
     <h2>{distance} km</h2>
     <h3>1 part of track: {distance / NUM_PARTS} km</h3>
@@ -36,6 +42,13 @@ const Track = ({ distance }: Props) => (
         ))}
       </div>
     </div>
+    {trafficSigns.map((sign: SpeedLimit) => (
+      <TrafficSign
+        key={sign.position}
+        signPosition={calculatePercentagePosition(distance, sign.position)}
+        speedLimit={sign.speed}
+      />
+    ))}
   </div>
 );
 
