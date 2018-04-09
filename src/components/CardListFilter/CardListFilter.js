@@ -24,8 +24,7 @@ class CardListFilter extends Component<Props, State> {
     const { children, cards } = this.props;
 
     const cardListFiltered = cards.filter(card =>
-      card.name.toLowerCase().includes(searchTerm.toLowerCase()),
-    );
+      card.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
       <div>
