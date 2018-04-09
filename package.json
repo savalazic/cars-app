@@ -10,7 +10,8 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-icons": "^2.2.7",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "recompose": "^0.26.0"
   },
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,jsx}\"",

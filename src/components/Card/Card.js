@@ -1,14 +1,20 @@
 // @flow
 import React from 'react';
+import { compose, withState, withHandlers } from 'recompose';
 import { type Car } from '../../types';
 import './Card.css';
 
 type Props = {
   content: Car,
+  toggleSelected: () => void,
+  isSelected: boolean,
 };
 
-const Card = ({ content }: Props) => (
-  <div className="card-wrapper">
+const Card = ({ content, toggleSelected, isSelected }: Props) => (
+  <div
+    className={`card-wrapper ${isSelected ? 'selected' : ''}`}
+    onClick={toggleSelected}
+  >
     <div className="card">
       <div className="front">
         <div className="card-title">{content.name}</div>
@@ -26,4 +32,9 @@ const Card = ({ content }: Props) => (
   </div>
 );
 
-export default Card;
+export default compose(
+  withState('isSelected', 'setSelected', false),
+  withHandlers({
+    toggleSelected: props => () => props.setSelected(!props.isSelected),
+  }),
+)(Card);
