@@ -1,0 +1,16 @@
+@import '_variables';
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: sans-serif;
+  font-size: $fontSize;
+  background: #eee;
+  color: $primaryColor;
+}
+
+#root {
+  max-width: 1200px;
+  margin: 20px auto;
+}
