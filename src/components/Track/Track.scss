@@ -1,7 +1,38 @@
-.track {
+.indicators {
   position: relative;
-  margin-top: 50px;
-  padding: 10px;
+  left: 12px;
+
+  .indicator-item {
+    display: inline-block;
+    text-align: right;
+
+    &:last-of-type {
+      display: none !important;
+    }
+  }
+}
+
+.track {
+  margin-top: 20px;
   background: white;
   border-radius: 6px;
+
+  .track-row {
+    border-bottom: 2px solid rgba(black, 0.2);
+    height: 100px;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+
+  .track-column {
+    display: inline-block;
+    border-right: 2px solid rgba(black, 0.2);
+    height: 100%;
+
+    &:last-of-type {
+      border-right: 0;
+    }
+  }
 }

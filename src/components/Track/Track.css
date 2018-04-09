@@ -1,6 +1,24 @@
-.track {
+.indicators {
   position: relative;
-  margin-top: 50px;
-  padding: 10px;
+  left: 12px; }
+  .indicators .indicator-item {
+    display: inline-block;
+    text-align: right; }
+    .indicators .indicator-item:last-of-type {
+      display: none !important; }
+
+.track {
+  margin-top: 20px;
   background: white;
   border-radius: 6px; }
+  .track .track-row {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    height: 100px; }
+    .track .track-row:last-of-type {
+      border-bottom: 0; }
+  .track .track-column {
+    display: inline-block;
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+    height: 100%; }
+    .track .track-column:last-of-type {
+      border-right: 0; }
