@@ -1,0 +1,24 @@
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr); }
+  .card-list > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-width: 0 2px 2px 0; }
+    @media (max-width: 800px) {
+      .card-list > * {
+        border-width: 0 0 2px 0; } }
+    .card-list > *:nth-of-type(3n) {
+      border-right-width: 0; }
+    .card-list > *:nth-of-type(n+4) {
+      border-bottom-width: 0; }
+      @media (max-width: 800px) {
+        .card-list > *:nth-of-type(n+4) {
+          border-bottom-width: 2px; } }
+  @media (max-width: 800px) {
+    .card-list {
+      grid-template-columns: repeat(1, 1fr); } }

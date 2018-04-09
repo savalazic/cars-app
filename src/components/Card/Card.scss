@@ -1,0 +1,81 @@
+@import '../../_variables';
+
+$cardWidth: 300px;
+$cardHeight: 200px;
+
+$cardShadow: 0 0 15px rgba(black, 0.1);
+
+$mouseInTransition: 1000ms;
+$mouseOutTransition: 500ms;
+
+.card-wrapper {
+  perspective: 800px;
+  cursor: pointer;
+
+  &:hover, &.selected {
+    .card {
+      transform: rotateY(180deg);
+      transition: transform $mouseOutTransition;
+    }
+  }  
+}
+
+.card {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: $cardHeight;
+  box-shadow: $cardShadow;
+  text-align: center;
+
+  transition: transform $mouseInTransition;
+  transform-style: preserve-3d;
+
+  .front, .back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+
+    border-radius: 5px;
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
+
+  .front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    line-height: $cardWidth/2;
+    background: white;
+  }
+
+  .back {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotateY(180deg);
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(to top, $primaryColor, lighten($primaryColor, 50%));
+      opacity: 0.8;
+      z-index: -1;
+    }
+  }
+
+  .card-title {
+    font-size: 1.5em;
+    color: $primaryColor;
+  }
+
+  .card-description {
+    color: white;
+  }
+}
