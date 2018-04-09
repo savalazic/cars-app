@@ -6,6 +6,7 @@ import { getCars } from '../../api/carApi';
 import './App.css';
 
 import CardList from '../CardList';
+import CardListFilter from '../CardListFilter';
 
 type State = {
   cars: Array<Car>,
@@ -26,11 +27,15 @@ class App extends Component<*, State> {
   render() {
     const { cars } = this.state;
 
-    if (!cars.length) {
-      return <div>Loading</div>;
-    }
-
-    return <div className="App">{cars && <CardList cars={cars} />}</div>;
+    return (
+      <div className="App">
+        {cars && (
+          <CardListFilter cards={cars}>
+            <CardList />
+          </CardListFilter>
+        )}
+      </div>
+    );
   }
 }
 
