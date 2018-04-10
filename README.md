@@ -31,6 +31,7 @@ To get started:
 - Prettier
 - Jest
 - Enzyme
+- Recompose
 
 ### Testing
 - Snapshot
