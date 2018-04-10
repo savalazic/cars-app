@@ -1,10 +1,7 @@
 .traffic-sign {
-  position: relative;
-  display: inline-block;
+  position: absolute;
   width: 70px;
   height: 70px;
-  margin-top: 20px;
-  margin-left: -35px;
   text-align: center;
   line-height: 60px;
   background: white;

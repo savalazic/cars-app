@@ -1,0 +1,30 @@
+.traffic-lights {
+  position: absolute;
+  background: #333;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(black, 0.1);
+
+  .red, .green {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 7px;
+  }
+
+  .red {
+    background: darken(red, 20%);
+
+    &.active {
+      background: lighten(red, 10%);
+      box-shadow: 0px 0px 20px lighten(red, 20%);
+    }
+  }
+  .green {
+    background: darken(green, 10%);
+
+    &.active {
+      background: lighten(green, 15%);
+      box-shadow: 0px 0px 20px lighten(green, 20%);
+    }
+  }
+}

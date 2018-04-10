@@ -1,13 +1,9 @@
 $trafficSignSize: 70px;
 
 .traffic-sign {
-  position: relative;
-  display: inline-block;
+  position: absolute;
   width: $trafficSignSize;
   height: $trafficSignSize;
-
-  margin-top: 20px;
-  margin-left: -35px; // normalize initial sign position to be centered
 
   text-align: center;
   line-height: 60px;

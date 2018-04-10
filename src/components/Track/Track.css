@@ -22,3 +22,8 @@
     height: 100%; }
     .track .track-column:last-of-type {
       border-right: 0; }
+
+.track-signs {
+  position: relative;
+  margin-top: 20px;
+  min-height: 100px; }
