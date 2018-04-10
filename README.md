@@ -20,6 +20,9 @@ To get started:
 
 ## About
 
+### Server
+- Express server is running on http://localhost:8080
+
 ### Technologies & dependencies used
 - React
 - Sass
@@ -30,11 +33,9 @@ To get started:
 - Enzyme
 
 ### Testing
-
-**Types**
 - Snapshot
 - Unit
 
 ### Style Guide
 
-[AirBnb's React style guide](https://github.com/airbnb/javascript/tree/master/react)
+[AirBnb](https://github.com/airbnb/javascript/tree/master/react)
