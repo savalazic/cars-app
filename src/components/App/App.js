@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import intersection from 'lodash/intersection';
 import type { Car, Data, SpeedLimit, TrafficLight } from '../../types';
 import { getCars } from '../../api/carApi';
 
@@ -12,6 +13,7 @@ import Track from '../Track';
 type State = {
   isDataLoading: boolean,
   cars: Array<Car>,
+  selectedCars: Array<Car>,
   trackDistance: number,
   speedLimits: Array<SpeedLimit>,
   trafficLights: Array<TrafficLight>,
@@ -21,6 +23,7 @@ class App extends Component<*, State> {
   state = {
     isDataLoading: true,
     cars: [],
+    selectedCars: [],
     trackDistance: 0,
     speedLimits: [],
     trafficLights: [],
@@ -39,9 +42,21 @@ class App extends Component<*, State> {
     });
   }
 
+  handleCarSelect = (car: Car) => {
+    this.setState(prevState => ({
+      selectedCars: [...prevState.selectedCars, car],
+    }));
+  };
+
+  handleUnselectCar = (car: Car) => {
+    const filteredCars = this.state.selectedCars.filter(sc => sc.id !== car.id);
+    this.setState({ selectedCars: filteredCars });
+  };
+
   render() {
     const {
       cars,
+      selectedCars,
       isDataLoading,
       trackDistance,
       speedLimits,
@@ -55,13 +70,19 @@ class App extends Component<*, State> {
     return (
       <div className="App">
         <CardListFilter cards={cars}>
-          <CardList />
+          <CardList
+            selectCar={this.handleCarSelect}
+            unselectCar={this.handleUnselectCar}
+          />
         </CardListFilter>
-        <Track
-          distance={trackDistance}
-          trafficSigns={speedLimits}
-          trafficLights={trafficLights}
-        />
+        {selectedCars.length > 0 && (
+          <Track
+            distance={trackDistance}
+            trafficSigns={speedLimits}
+            trafficLights={trafficLights}
+            activeTracks={intersection(selectedCars, cars)}
+          />
+        )}
       </div>
     );
   }

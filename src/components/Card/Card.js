@@ -8,12 +8,27 @@ type Props = {
   content: Car,
   toggleSelected: () => void,
   isSelected: boolean,
+  selectCar: (Car) => void,
+  unselectCar: (Car) => void,
 };
 
-const Card = ({ content, toggleSelected, isSelected }: Props) => (
+const Card = ({
+  content,
+  toggleSelected,
+  selectCar,
+  unselectCar,
+  isSelected,
+}: Props) => (
   <div
     className={`card-wrapper ${isSelected ? 'selected' : ''}`}
-    onClick={toggleSelected}
+    onClick={() => {
+      toggleSelected();
+      if (!isSelected) {
+        selectCar(content);
+      } else {
+        unselectCar(content);
+      }
+    }}
   >
     <div className="card">
       <div className="front">

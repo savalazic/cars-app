@@ -11,6 +11,7 @@ type Props = {
   distance: number,
   trafficSigns: Array<SpeedLimit>,
   trafficLights: Array<TrafficLight>,
+  activeTracks: Array<*>,
 };
 
 const NUM_PARTS = 10;
@@ -18,7 +19,12 @@ const NUM_PARTS = 10;
 const calculatePercentagePosition = (distance: number, position: number) =>
   position / distance * 100; // eslint-disable-line
 
-const Track = ({ distance, trafficSigns, trafficLights }: Props) => (
+const Track = ({
+  distance,
+  activeTracks,
+  trafficSigns,
+  trafficLights,
+}: Props) => (
   <div>
     <h2>{distance} km</h2>
     <h3>1 part of track: {distance / NUM_PARTS} km</h3>
@@ -34,15 +40,24 @@ const Track = ({ distance, trafficSigns, trafficLights }: Props) => (
       ))}
     </div>
     <div className="track">
-      <div className="track-row">
-        {[...Array(NUM_PARTS)].map((e, i) => (
+      {activeTracks.map(ac => (
+        <div className="track-row" key={ac.id}>
           <div
-            key={i}
-            className="track-column"
-            style={{ width: `calc(100% / ${NUM_PARTS})` }}
+            className="track-item"
+            style={{
+              backgroundImage: `url(${ac.image})`,
+              position: 'absolute',
+            }}
           />
-        ))}
-      </div>
+          {[...Array(NUM_PARTS)].map((e, i) => (
+            <div
+              key={i}
+              className="track-column"
+              style={{ width: `calc(100% / ${NUM_PARTS})` }}
+            />
+          ))}
+        </div>
+      ))}
     </div>
     <div className="track-signs">
       {trafficSigns.map((ts: SpeedLimit) => (

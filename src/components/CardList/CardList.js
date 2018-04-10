@@ -6,11 +6,20 @@ import './CardList.css';
 
 type Props = {
   cars: Array<Car>,
+  selectCar: () => void,
+  unselectCar: () => void,
 };
 
-const CardList = ({ cars }: Props) => (
+const CardList = ({ cars, selectCar, unselectCar }: Props) => (
   <div className="card-list">
-    {cars.map(car => <Card key={car.id} content={car} />)}
+    {cars.map(car => (
+      <Card
+        key={car.id}
+        selectCar={selectCar}
+        unselectCar={unselectCar}
+        content={car}
+      />
+    ))}
   </div>
 );
 

@@ -10,12 +10,20 @@
 .track {
   margin-top: 20px;
   background: white;
-  border-radius: 6px; }
+  border-radius: 6px;
+  overflow: hidden; }
   .track .track-row {
+    position: relative;
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
     height: 100px; }
     .track .track-row:last-of-type {
       border-bottom: 0; }
+    .track .track-row .track-item {
+      width: 120px;
+      height: 100%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat; }
   .track .track-column {
     display: inline-block;
     border-right: 2px solid rgba(0, 0, 0, 0.2);
