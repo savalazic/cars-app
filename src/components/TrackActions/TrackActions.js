@@ -7,13 +7,20 @@ import Form from '../../ui-components/Form';
 import './TrackActions.css';
 
 type Props = {
-  onSubmit: () => void,
+  onStart: () => void,
+  onRaceDurationChange: () => void,
+  disabled: boolean,
 };
 
-const TrackActions = ({ onSubmit }: Props) => (
+const TrackActions = ({ onStart, onRaceDurationChange, disabled }: Props) => (
   <div className="track-actions">
-    <Form onSubmit={onSubmit} submitText="Start">
-      <Input type="number" placeholder="Animation speed" required />
+    <Form onSubmit={onStart} submitText="Start" disabled={disabled}>
+      <Input
+        onChange={onRaceDurationChange}
+        type="number"
+        placeholder="Animation speed"
+        required
+      />
     </Form>
   </div>
 );

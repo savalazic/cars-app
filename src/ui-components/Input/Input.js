@@ -8,16 +8,18 @@ type Props = {
   placeholder: ?string,
   type: ?string,
   required: ?boolean,
+  disabled: ?boolean,
 };
 
 const Input = ({
-  onChange, placeholder, type, required,
+  onChange, placeholder, type, required, disabled,
 }: Props) => (
   <input
     type={type}
     placeholder={placeholder}
     onChange={onChange}
     required={required}
+    disabled={disabled}
   />
 );
 

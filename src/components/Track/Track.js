@@ -6,6 +6,7 @@ import type { SpeedLimit, TrafficLight } from '../../types';
 import TrafficSign from '../TrafficSign';
 import TrafficLights from '../TrafficLights';
 import TrackActions from '../TrackActions';
+import TrackCar from '../TrackCar';
 
 import './Track.css';
 
@@ -14,6 +15,11 @@ type Props = {
   trafficSigns: Array<SpeedLimit>,
   trafficLights: Array<TrafficLight>,
   activeTracks: Array<*>,
+  onStart: () => void,
+  onRaceDurationChange: () => void,
+  raceDuration: number,
+  started: boolean,
+  sortedSpeed: Array<number>,
 };
 
 const NUM_PARTS = 10;
@@ -26,10 +32,13 @@ const Track = ({
   activeTracks,
   trafficSigns,
   trafficLights,
+  onStart,
+  started,
+  sortedSpeed,
+  onRaceDurationChange,
+  raceDuration,
 }: Props) => (
   <div>
-    <h2>{distance} km</h2>
-    <h3>1 part of track: {distance / NUM_PARTS} km</h3>
     <div className="indicators">
       {[...Array(NUM_PARTS)].map((e, i) => (
         <div
@@ -44,12 +53,12 @@ const Track = ({
     <div className="track">
       {activeTracks.map(ac => (
         <div className="track-row" key={ac.id}>
-          <div
-            className="track-item"
-            style={{
-              backgroundImage: `url(${ac.image})`,
-              position: 'absolute',
-            }}
+          <TrackCar
+            started={started}
+            image={ac.image}
+            speed={ac.speed}
+            sortedSpeed={sortedSpeed}
+            raceDuration={raceDuration}
           />
           {[...Array(NUM_PARTS)].map((e, i) => (
             <div
@@ -77,7 +86,11 @@ const Track = ({
         />
       ))}
     </div>
-    <TrackActions />
+    <TrackActions
+      onStart={onStart}
+      onRaceDurationChange={onRaceDurationChange}
+      disabled={started}
+    />
   </div>
 );
 

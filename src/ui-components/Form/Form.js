@@ -9,12 +9,15 @@ type Props = {
   onSubmit: () => void,
   submitText: string,
   children: Element<*>,
+  disabled: ?boolean,
 };
 
-const Form = ({ onSubmit, submitText, children }: Props) => (
+const Form = ({
+  onSubmit, submitText, children, disabled,
+}: Props) => (
   <form onSubmit={onSubmit}>
     {children}
-    <Button type="submit" text={submitText} />
+    <Button type="submit" text={submitText} disabled={disabled} />
   </form>
 );
 

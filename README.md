@@ -17,3 +17,24 @@ To get started:
 - Running tests:
 
 `yarn test`
+
+## About
+
+### Technologies & dependencies used
+- React
+- Sass
+- Flow
+- ESLint
+- Prettier
+- Jest
+- Enzyme
+
+### Testing
+
+**Types**
+- Snapshot
+- Unit
+
+### Style Guide
+
+[AirBnb's React style guide](https://github.com/airbnb/javascript/tree/master/react)

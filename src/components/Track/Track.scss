@@ -16,7 +16,6 @@
   margin-top: 20px;
   background: white;
   border-radius: 6px;
-  overflow: hidden;
 
   .track-row {
     position: relative;
@@ -25,14 +24,6 @@
 
     &:last-of-type {
       border-bottom: 0;
-    }
-
-    .track-item {
-      width: 120px;
-      height: 100%;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
     }
   }
 

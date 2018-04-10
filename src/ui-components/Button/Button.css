@@ -10,3 +10,6 @@ button {
   transition: background 300ms; }
   button:hover {
     background: #3a4669; }
+  button[disabled] {
+    opacity: 0.3;
+    pointer-events: none; }

@@ -30,6 +30,8 @@
     line-height: 150px;
     background: white; }
   .card .back {
+    display: flex;
+    align-items: flex-end;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

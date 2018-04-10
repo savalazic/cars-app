@@ -1,0 +1,41 @@
+.track-car {
+  position: absolute;
+  width: 120px;
+  height: 100%;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition-timing-function: linear;
+
+  .medal {
+    position: absolute;
+    top: 0;
+    right: -40px;
+    font-size: 6em;
+    color: transparent;
+
+    animation: bounceIn 500ms forwards;
+  }
+
+  .rank {
+    display: inline-block;
+    margin: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+
+    animation: bounceIn 500ms forwards;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

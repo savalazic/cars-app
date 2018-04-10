@@ -6,6 +6,9 @@ input {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   outline: none;
   color: #283048; }
+  input[disabled] {
+    opacity: 0.5;
+    pointer-events: none; }
   input::placeholder {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.3); }

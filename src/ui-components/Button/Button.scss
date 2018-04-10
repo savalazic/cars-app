@@ -16,4 +16,9 @@ button {
   &:hover {
     background: lighten($primaryColor, 10%);
   }
+
+  &[disabled] {
+    opacity: 0.3;
+    pointer-events: none;
+  }
 }

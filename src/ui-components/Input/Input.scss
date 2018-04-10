@@ -11,6 +11,11 @@ input {
   outline: none;
   color: $primaryColor;
 
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   &::placeholder {
     font-size: $fontSize;
     color: rgba(black, 0.3);
