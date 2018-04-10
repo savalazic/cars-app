@@ -1,0 +1,18 @@
+@import '../../_variables';
+
+$inputShadow: 0 0 15px rgba(black, 0.1);
+
+input {
+  text-align: center;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  box-shadow: $inputShadow;
+  outline: none;
+  color: $primaryColor;
+
+  &::placeholder {
+    font-size: $fontSize;
+    color: rgba(black, 0.3);
+  }
+}

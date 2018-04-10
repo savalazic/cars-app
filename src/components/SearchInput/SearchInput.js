@@ -2,6 +2,8 @@
 import React from 'react';
 import SearchIcon from 'react-icons/lib/md/search';
 
+import Input from '../../ui-components/Input';
+
 import './SearchInput.css';
 
 type Props = {
@@ -10,7 +12,7 @@ type Props = {
 
 const SearchInput = ({ onChange }: Props) => (
   <div className="search">
-    <input type="text" placeholder="Search cars.." onChange={onChange} />
+    <Input type="text" placeholder="Search cars.." onChange={onChange} />
     <SearchIcon className="search-icon" />
   </div>
 );

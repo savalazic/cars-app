@@ -2,8 +2,10 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import type { SpeedLimit, TrafficLight } from '../../types';
+
 import TrafficSign from '../TrafficSign';
 import TrafficLights from '../TrafficLights';
+import TrackActions from '../TrackActions';
 
 import './Track.css';
 
@@ -75,6 +77,7 @@ const Track = ({
         />
       ))}
     </div>
+    <TrackActions />
   </div>
 );
 
