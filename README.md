@@ -6,7 +6,7 @@ To get started:
 
 `yarn install`
 
-- Start the development server:
+- Start the development server (along with API):
 
 `yarn start`
 
@@ -20,7 +20,7 @@ To get started:
 
 ## About
 
-### Server
+### Server (API)
 - Express server is running on http://localhost:8080
 
 ### Technologies & dependencies used
