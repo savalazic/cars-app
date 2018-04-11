@@ -14,6 +14,4 @@ const TrafficSign = ({ speedLimit, signPosition }: Props) => (
   </div>
 );
 
-// 22/50*100
-
 export default TrafficSign;
