@@ -1,7 +1,7 @@
 // @flow
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import type { SpeedLimit, TrafficLight } from '../../types';
+import type { SpeedLimit, TrafficLight, Car } from '../../types';
 
 import TrafficSign from '../TrafficSign';
 import TrafficLights from '../TrafficLights';
@@ -14,7 +14,7 @@ type Props = {
   distance: number,
   trafficSigns: Array<SpeedLimit>,
   trafficLights: Array<TrafficLight>,
-  activeTracks: Array<*>,
+  activeTracks: Array<Car>,
   onStart: () => void,
   onRaceDurationChange: () => void,
   raceDuration: number,

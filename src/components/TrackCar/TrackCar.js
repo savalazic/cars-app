@@ -49,7 +49,6 @@ class TrackCar extends Component<Props, State> {
       default:
         break;
     }
-
     return medalColor;
   };
 
@@ -60,7 +59,7 @@ class TrackCar extends Component<Props, State> {
 
     const { showRank } = this.state;
 
-    const calculateRaceDuration = raceDuration / speed;
+    const calculateRaceDuration = (raceDuration / speed) / 10;
     const rankPosition = sortedSpeed.findIndex(e => e === speed) + 1;
 
     return (
@@ -68,9 +67,7 @@ class TrackCar extends Component<Props, State> {
         className="track-car"
         style={{
           backgroundImage: `url(${image})`,
-          transform: started
-            ? `translateX(${this.trackWidth - this.carWidth}px)`
-            : '',
+          transform: started && `translateX(${this.trackWidth - this.carWidth}px)`,
           transitionDuration: `${calculateRaceDuration}s`,
         }}
         onTransitionEnd={this.onRaceEnd}

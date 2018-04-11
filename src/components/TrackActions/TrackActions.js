@@ -18,7 +18,7 @@ const TrackActions = ({ onStart, onRaceDurationChange, disabled }: Props) => (
       <Input
         onChange={onRaceDurationChange}
         type="number"
-        placeholder="Animation speed"
+        placeholder="Race duration (ms)"
         required
       />
     </Form>

@@ -9,7 +9,9 @@ input {
   border-radius: 5px;
   box-shadow: $inputShadow;
   outline: none;
+  line-height: 1;
   color: $primaryColor;
+  width: 200px;
 
   &[disabled] {
     opacity: 0.5;
